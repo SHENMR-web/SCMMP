@@ -1,6 +1,6 @@
-# CoSUN
+# SCMMP
 
-### Interpretable Consensus-Based Shape-Aware Unfolded Networks for Multi-Robot Motion Planning
+### Shape-Aware Cooperative Multi-Robot Motion Planning via Distributed Trajectory Consensus
 
 > [!IMPORTANT]
 > **THE SOURCE CODE WILL BE RELEASED AFTER THE PAPER IS PUBLISHED.**
@@ -9,13 +9,13 @@
 
 ## Overview
 
-CoSUN studies distributed motion planning for robots with different body shapes in shared, crowded spaces. It combines explicit body geometry with trajectory consensus: each robot proposes future poses for itself and its neighbors, while owner updates and dual feedback reconcile their plans.
+Shape-aware cooperative multi-robot motion planning (SCMMP) studies distributed motion planning for robots with different body shapes in shared, crowded spaces. It combines explicit body geometry with trajectory consensus: each robot proposes future poses for itself and its neighbors, while owner updates and dual feedback reconcile their plans.
 
 The method unfolds sequential convex programming (SCP) and the alternating direction method of multipliers (ADMM) into fixed-depth optimization layers for model predictive control (MPC). These layers preserve interpretable optimization states and support GPU batch execution. Offline learning adjusts three shared solver scales for the prescribed iteration budget. The accompanying simulations use 10–30 differential-drive robots with polygonal bodies and randomized start and goal configurations.
 
 ## Simulation Platform
 
-The CoSUN implementation and simulation experiments are built on [IR-SIM](https://github.com/hanruihua/ir-sim), an open-source robot simulation platform.
+The SCMMP implementation and simulation experiments are built on [IR-SIM](https://github.com/hanruihua/ir-sim), an open-source robot simulation platform.
 
 ## Experimental Data
 
@@ -27,7 +27,7 @@ The three CSV files are provided unchanged from the original experiment outputs.
 | [per_run.csv](data/per_run.csv) | Per-scene results with seeds, scene hashes, success/collision/timeout rates, motion metrics, processing times, and solver residual statistics. |
 | [summary.csv](data/summary.csv) | Both run records and aggregate records; select `record_type=summary` for aggregates. |
 
-The uploaded data cover 100 randomized scenes for each robot count and each of four variants: CoSUN (`ours`), w/o Shaping (`wo_shaping`), w/o Priority (`wo_priority`), and w/o Learning (`wo_learning`). The CoSUN success rates below are the aggregate percentages of successful robots, as reported in `summary.csv`.
+The uploaded data cover 100 randomized scenes for each robot count and each of four variants: SCMMP (`ours`), w/o Shaping (`wo_shaping`), w/o Priority (`wo_priority`), and w/o Learning (`wo_learning`). The SCMMP success rates below are the aggregate percentages of successful robots, as reported in `summary.csv`.
 
 | Robots | Scenes | Success (%) |
 | --- | --- | --- |
